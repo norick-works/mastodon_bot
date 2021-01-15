@@ -1,0 +1,6 @@
+Mastodon.py (https://github.com/halcy/Mastodon.py) を利用してMastodon用BOTを作成するサンプルソースです。
+このサンプルでは文字列を複数用意したテキストファイルからランダムにTootします。
+Mastodonの仕様上二重投稿はエラーになりませんが、一応二重投稿対策を行っています。
+Client IDとAccess Tokenの作成は上記リンク先を参照してください。
+
+実際の稼働では、Webサーバ及びAWSのCronジョブ、GCPのCloud Scheduler等を利用して定期的に呼び出します。
