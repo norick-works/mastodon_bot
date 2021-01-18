@@ -16,6 +16,8 @@ client_file =	'client.dat'	#client
 token_file =	'token.dat'		#token
 bot_txt = 		'bot_toot.dat'	#ランダムトゥート用テキスト
 before_txt = 	'tmp.dat'		#重複チェック用
+txt_enc =		'utf-8'			#テキストエンコード
+txt_file_enc =	'utf-8_sig'
 
 #text encode
 sys.stdin =  io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
@@ -47,11 +49,19 @@ f.write(lines[random_line])
 f.close()
 
 #login
-mastodon = Mastodon(
-    client_id=client_file,
-    access_token=token_file,
-    api_base_url=url
-)
+def mastodon_login():
+	mastodon = Mastodon(
+		client_id=client_file,
+		access_token=token_file,
+		api_base_url=url
+	)
 
-#toot
-mastodon.toot(lines[random_line])
+def main():
+
+	mastodon_login()
+
+	#toot
+	mastodon.toot(lines[random_line])
+
+if __name__ == '__main__':
+    main()
